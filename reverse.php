@@ -8,16 +8,7 @@ use GIFEndec\Decoder;
 use GIFEndec\Frame;
 use GIFEndec\Renderer;
 
-$local = false;
-
-//$urlData = $_SERVER['REQUEST_URI'];
-
-$urlData;
-
-if($local)
-	$urlData = $_SERVER['argv'][1];
-else
-	$urlData = $_GET['url'];
+$urlData = $_GET['url'];
 
 $uid = uniqid();
 
@@ -30,22 +21,14 @@ $filenameIn  = $urlData;
 $filenameOut = __DIR__ . '/img/' . $uid . '.gif';
 
 $contentOrFalse = file_get_contents($filenameIn);
-
-if($contentOrFalse === false)
-	die("Error in file_get_contents!");
-
 $bytesOrFalse = file_put_contents($filenameOut, $contentOrFalse);
-
-if($bytesOrFalse === false)
-	die("Something brock'd! {$uid}");
 
 $gifStream = new MemoryStream();
 $gifStream->loadFromFile($filenameOut);
-$framearr = array();
-
 $gifDecoder = new Decoder($gifStream);
-
 $gif = new Encoder();
+
+$framearr = array();
 
 $gifDecoder->decode(function (Frame $frame, $index) 
 {
