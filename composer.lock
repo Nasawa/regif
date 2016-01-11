@@ -1,0 +1,57 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "2af6fe59c1adc61a1bd6d42014b7ee2e",
+    "content-hash": "97937b2167752d61eb48fb6ad8e19616",
+    "packages": [
+        {
+            "name": "stil/gif-endec",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stil/gif-endec.git",
+                "reference": "6150d166d33c4b6f0682c98309391c7472b2a025"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stil/gif-endec/zipball/6150d166d33c4b6f0682c98309391c7472b2a025",
+                "reference": "6150d166d33c4b6f0682c98309391c7472b2a025",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GIFEndec\\": "src/",
+                    "GIFEndec\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP GIF decoder and decoder with callback functions.",
+            "keywords": [
+                "animated",
+                "duration",
+                "frame",
+                "gif",
+                "php"
+            ],
+            "time": "2015-02-23 22:01:43"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
