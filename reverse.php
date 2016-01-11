@@ -13,9 +13,7 @@ $urlData = $_GET['url'];
 $uid = uniqid();
 
 if(strpos($urlData,'gif') === false)
-{
 	die("Not a gif file!");
-}
 
 $filenameIn  = $urlData;
 $filenameOut = __DIR__ . '/img/' . $uid . '.gif';
@@ -32,14 +30,12 @@ $framearr = array();
 
 $gifDecoder->decode(function (Frame $frame, $index) 
 {
-    global $framearr;
-     $framearr[] = $frame;
+	global $framearr;
+	$framearr[] = $frame;
 });
 
 foreach (array_reverse($framearr) as $frame) 
-{
 	$gif->addFrame($frame);
-}
 
 $gif->addFooter();
 $gif->getStream()->copyContentsToFile(__DIR__ . '/out/'. $uid .'.gif');
@@ -49,5 +45,8 @@ $fp = fopen($returner, 'rb');
 
 header("Content-Type: image/gif");
 header("Content-Length: " . filesize($returner));
+
+unlink($filenameOut);
+unlink($returner);
 
 fpassthru($fp);
